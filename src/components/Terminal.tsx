@@ -30,12 +30,7 @@ export const Terminal: React.FC<TerminalProps> = ({
     {
       id: 'init-1',
       type: 'system',
-      text: 'rrxcoreOS v2.0 (x86_64-pc-linux-gnu) — Systems & Applied AI Environment'
-    },
-    {
-      id: 'init-2',
-      type: 'system',
-      text: 'Type "help" or "neofetch" to explore capabilities. Press Ctrl+~ to toggle.'
+      text: "rrxcoreOS shell v2.0 — type 'help' to begin."
     }
   ]);
 
@@ -95,7 +90,7 @@ export const Terminal: React.FC<TerminalProps> = ({
     const userLog: TerminalLog = {
       id: Date.now().toString(),
       type: 'input',
-      text: `rrxcore@archlinux:~$ ${cmd}`
+      text: `rrxcore@rrxcoreOS:~$ ${cmd}`
     };
 
     const parts = cmd.split(' ');
@@ -320,10 +315,19 @@ export const Terminal: React.FC<TerminalProps> = ({
           borderColor: 'var(--border-color)'
         }}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+          </div>
+          <span className="text-[11px] font-mono text-slate-300 font-semibold mr-1">
+            rrxcore@rrxcoreOS: ~
+          </span>
+          <div className="h-3.5 w-px bg-white/10 hidden sm:block" />
           <button 
             onClick={() => setActiveTab('terminal')}
-            className={`font-semibold transition-colors ${
+            className={`font-semibold transition-colors hidden sm:block ${
               activeTab === 'terminal' 
                 ? 'text-cyan-400 border-b-2 border-cyan-400 pb-0.5' 
                 : 'text-slate-400 hover:text-slate-200'
@@ -333,7 +337,7 @@ export const Terminal: React.FC<TerminalProps> = ({
           </button>
           <button 
             onClick={() => setActiveTab('output')}
-            className={`transition-colors ${
+            className={`transition-colors hidden sm:block ${
               activeTab === 'output' 
                 ? 'text-cyan-400 border-b-2 border-cyan-400 pb-0.5' 
                 : 'text-slate-400 hover:text-slate-200'
@@ -343,7 +347,7 @@ export const Terminal: React.FC<TerminalProps> = ({
           </button>
           <button 
             onClick={() => setActiveTab('problems')}
-            className={`transition-colors ${
+            className={`transition-colors hidden md:block ${
               activeTab === 'problems' 
                 ? 'text-cyan-400 border-b-2 border-cyan-400 pb-0.5' 
                 : 'text-slate-400 hover:text-slate-200'
@@ -398,11 +402,11 @@ export const Terminal: React.FC<TerminalProps> = ({
             if (log.type === 'input') {
               return (
                 <div key={log.id} className="text-slate-200 font-semibold">
-                  <span className="text-emerald-400">rrxcore@archlinux</span>
+                  <span className="text-emerald-400">rrxcore@rrxcoreOS</span>
                   <span className="text-slate-500">:</span>
                   <span className="text-cyan-400">~</span>
                   <span className="text-slate-500">$ </span>
-                  <span>{log.text.replace('rrxcore@archlinux:~$ ', '')}</span>
+                  <span>{log.text.replace('rrxcore@rrxcoreOS:~$ ', '')}</span>
                 </div>
               );
             }
@@ -436,7 +440,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
           {/* Active Input Prompt */}
           <div className="flex items-center gap-1.5 mt-1">
-            <span className="text-emerald-400 font-semibold">rrxcore@archlinux</span>
+            <span className="text-emerald-400 font-semibold">rrxcore@rrxcoreOS</span>
             <span className="text-slate-500">:</span>
             <span className="text-cyan-400 font-semibold">~</span>
             <span className="text-slate-500">$</span>
