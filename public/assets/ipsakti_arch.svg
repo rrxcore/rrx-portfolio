@@ -1,0 +1,347 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="ipBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020907"/>
+      <stop offset="40%" stop-color="#051410"/>
+      <stop offset="80%" stop-color="#091a18"/>
+      <stop offset="100%" stop-color="#020706"/>
+    </linearGradient>
+
+    <!-- Node Card Gradients -->
+    <linearGradient id="taxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a261a"/>
+      <stop offset="100%" stop-color="#03110b"/>
+    </linearGradient>
+
+    <linearGradient id="ragGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241907"/>
+      <stop offset="100%" stop-color="#100b02"/>
+    </linearGradient>
+
+    <linearGradient id="verdictGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071e29"/>
+      <stop offset="100%" stop-color="#030d13"/>
+    </linearGradient>
+
+    <!-- Glowing Wire Gradients -->
+    <linearGradient id="wireGreenGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+
+    <linearGradient id="wireGoldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="ipPacketGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="ipSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Botanical Cyber Grid Pattern -->
+    <pattern id="ipGrid" width="35" height="35" patternUnits="userSpaceOnUse">
+      <path d="M 35 0 L 0 0 0 35" fill="none" stroke="#10b981" stroke-width="0.6" stroke-opacity="0.04"/>
+      <circle cx="0" cy="0" r="1" fill="#10b981" fill-opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <style>
+    <![CDATA[
+    @keyframes dashStream {
+      0% { stroke-dashoffset: 40; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes packetHop1 {
+      0% { transform: translateX(0px); opacity: 0; }
+      15% { opacity: 1; }
+      45% { transform: translateX(65px); opacity: 1; }
+      55% { transform: translateX(65px); opacity: 0; }
+      100% { transform: translateX(65px); opacity: 0; }
+    }
+    @keyframes packetHop2 {
+      0% { transform: translateX(0px); opacity: 0; }
+      50% { transform: translateX(0px); opacity: 0; }
+      60% { opacity: 1; }
+      90% { transform: translateX(65px); opacity: 1; }
+      100% { transform: translateX(65px); opacity: 0; }
+    }
+    @keyframes nodeActiveEmerald {
+      0%, 100% { stroke: #10b981; stroke-opacity: 0.35; }
+      25% { stroke: #10b981; stroke-opacity: 0.95; }
+      50% { stroke: #10b981; stroke-opacity: 0.35; }
+    }
+    @keyframes nodeActiveGold {
+      0%, 100% { stroke: #f59e0b; stroke-opacity: 0.35; }
+      50% { stroke: #f59e0b; stroke-opacity: 0.95; }
+      75% { stroke: #f59e0b; stroke-opacity: 0.35; }
+    }
+    @keyframes nodeActiveCyan {
+      0%, 100% { stroke: #00f2fe; stroke-opacity: 0.35; }
+      75% { stroke: #00f2fe; stroke-opacity: 0.95; }
+      98% { stroke: #00f2fe; stroke-opacity: 0.35; }
+    }
+    @keyframes liveBeacon {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .flow-wire {
+      stroke-dasharray: 6 5;
+      animation: dashStream 1.2s linear infinite;
+    }
+    .packet-1 {
+      animation: packetHop1 4s ease-in-out infinite;
+    }
+    .packet-2 {
+      animation: packetHop2 4s ease-in-out infinite;
+    }
+    .box-tax {
+      animation: nodeActiveEmerald 4s ease-in-out infinite;
+    }
+    .box-rag {
+      animation: nodeActiveGold 4s ease-in-out infinite;
+    }
+    .box-verdict {
+      animation: nodeActiveCyan 4s ease-in-out infinite;
+    }
+    .beacon {
+      animation: liveBeacon 1.8s infinite;
+    }
+    .mono {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    }
+    .sans {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+    }
+    ]]>
+  </style>
+
+  <!-- ================= CANVAS BACKGROUND ================= -->
+  <rect width="1200" height="520" fill="url(#ipBg)" rx="16"/>
+  <rect width="1200" height="520" fill="url(#ipGrid)" rx="16"/>
+  <rect x="2" y="2" width="1196" height="516" rx="15" fill="none" stroke="#10b981" stroke-opacity="0.25" stroke-width="1.2"/>
+
+  <!-- ================= TOP HUD HEADER ================= -->
+  <g transform="translate(40, 36)">
+    <!-- Terminal dots -->
+    <circle cx="0" cy="0" r="4" fill="#ef4444" fill-opacity="0.9"/>
+    <circle cx="12" cy="0" r="4" fill="#eab308" fill-opacity="0.9"/>
+    <circle cx="24" cy="0" r="4" fill="#22c55e" fill-opacity="0.9"/>
+
+    <!-- Title and Subtitle -->
+    <text x="42" y="4" fill="#f8fafc" font-size="12" font-weight="700" class="mono" letter-spacing="2">
+      IP-SAKTI SAHAYAK (AYURIX) <tspan fill="#64748b">//</tspan> <tspan fill="#10b981">STATUTORY AYURVEDIC IPR DEFENSE PIPELINE</tspan>
+    </text>
+
+    <!-- Live Status Capsule -->
+    <g transform="translate(900, -12)">
+      <rect x="0" y="0" width="180" height="24" rx="12" fill="#04140e" stroke="#10b981" stroke-opacity="0.5" stroke-width="1"/>
+      <circle cx="12" cy="12" r="3.5" fill="#10b981" class="beacon"/>
+      <text x="24" y="16" fill="#10b981" font-size="9" font-weight="700" class="mono" letter-spacing="1">SIH 2026 STATUTORY CORE</text>
+    </g>
+  </g>
+
+  <!-- ================= CONDUIT 1: TAXONOMY ➔ HYBRID RAG (Between x=370 and x=435) ================= -->
+  <g transform="translate(370, 235)">
+    <!-- Conduit backing pipe -->
+    <line x1="0" y1="0" x2="65" y2="0" stroke="#081c13" stroke-width="8" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="65" y2="0" stroke="url(#wireGreenGold)" stroke-width="3" class="flow-wire" stroke-linecap="round"/>
+    
+    <!-- Conduit Label Badge (Centered, fits neatly inside 65px gap without clipping) -->
+    <g transform="translate(32, -22)">
+      <rect x="-28" y="-9" width="56" height="18" rx="9" fill="#04120c" stroke="#10b981" stroke-opacity="0.6" stroke-width="1"/>
+      <text x="0" y="3.5" text-anchor="middle" fill="#34d399" font-size="8" font-weight="700" class="mono">TAXA</text>
+    </g>
+
+    <!-- Animated Data Packet 1 -->
+    <g class="packet-1">
+      <circle cx="0" cy="0" r="6" fill="#10b981" filter="url(#ipPacketGlow)"/>
+      <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- ================= CONDUIT 2: HYBRID RAG ➔ COMPLIANCE (Between x=765 and x=830) ================= -->
+  <g transform="translate(765, 235)">
+    <!-- Conduit backing pipe -->
+    <line x1="0" y1="0" x2="65" y2="0" stroke="#1c1306" stroke-width="8" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="65" y2="0" stroke="url(#wireGoldCyan)" stroke-width="3" class="flow-wire" stroke-linecap="round"/>
+    
+    <!-- Conduit Label Badge (Centered, fits neatly inside 65px gap without clipping) -->
+    <g transform="translate(32, -22)">
+      <rect x="-28" y="-9" width="56" height="18" rx="9" fill="#0f0a02" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1"/>
+      <text x="0" y="3.5" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700" class="mono">RAG HIT</text>
+    </g>
+
+    <!-- Animated Data Packet 2 -->
+    <g class="packet-2">
+      <circle cx="0" cy="0" r="6" fill="#f59e0b" filter="url(#ipPacketGlow)"/>
+      <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    </g>
+  </g>
+
+
+  <!-- ================= NODE 1: MULTILINGUAL TAXONOMY ================= -->
+  <g transform="translate(40, 72)">
+    <!-- Main Card Frame (330 x 335) -->
+    <rect x="0" y="0" width="330" height="335" rx="12" fill="url(#taxGrad)" stroke="#10b981" stroke-width="1.4" class="box-tax" filter="url(#ipSoftGlow)"/>
+    
+    <!-- Card Header Banner -->
+    <rect x="0" y="0" width="330" height="42" rx="12" fill="#0b2e20"/>
+    <circle cx="20" cy="21" r="5" fill="#10b981" filter="url(#ipSoftGlow)"/>
+    <text x="34" y="26" fill="#ffffff" font-size="12.5" font-weight="800" class="sans" letter-spacing="1">1. TAXONOMY ENGINE</text>
+    <rect x="245" y="10" width="72" height="22" rx="11" fill="#03140e" stroke="#10b981" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="281" y="24" text-anchor="middle" fill="#34d399" font-size="9" font-weight="700" class="mono">TAXA</text>
+
+    <!-- Step 1.1: Formulation & Claim Parser -->
+    <g transform="translate(14, 54)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#051610" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#34d399" font-size="12" font-weight="800" class="mono">🌿 Formulation &amp; Claim Parser</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Extracts Ayurvedic patent claims &amp; prior art</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Tokenizes poly-herbal compound ratios</text>
+    </g>
+
+    <!-- Step 1.2: Sanskrit-Latin Binomial Mapper -->
+    <g transform="translate(14, 146)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#051610" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#10b981" font-size="12" font-weight="800" class="mono">🏛️ Sanskrit-Latin Binomial Engine</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Cross-maps Charaka/Sushruta to Latin taxa</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">e.g. Ashwagandha ➔ Withania somnifera</text>
+    </g>
+
+    <!-- Step 1.3: WIPO 2024 Accord Validator -->
+    <g transform="translate(14, 238)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#051610" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#34d399" font-size="12" font-weight="800" class="mono">📜 WIPO 2024 Treaty Check</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Mandatory Genetic Resources disclosure</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Validates country-of-origin TK declarations</text>
+    </g>
+  </g>
+
+
+  <!-- ================= NODE 2: DUAL-LANE HYBRID RAG ================= -->
+  <g transform="translate(435, 72)">
+    <!-- Main Card Frame (330 x 335) -->
+    <rect x="0" y="0" width="330" height="335" rx="12" fill="url(#ragGrad)" stroke="#f59e0b" stroke-width="1.4" class="box-rag" filter="url(#ipSoftGlow)"/>
+    
+    <!-- Card Header Banner (Plenty of clearance: Title ends ~x=180, Badge starts x=220) -->
+    <rect x="0" y="0" width="330" height="42" rx="12" fill="#2e1f08"/>
+    <circle cx="20" cy="21" r="5" fill="#f59e0b" filter="url(#ipSoftGlow)"/>
+    <text x="34" y="26" fill="#ffffff" font-size="12.5" font-weight="800" class="sans" letter-spacing="1">2. HYBRID RAG CORE</text>
+    <rect x="220" y="10" width="97" height="22" rx="11" fill="#140c02" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="268" y="24" text-anchor="middle" fill="#fbbf24" font-size="8.5" font-weight="700" class="mono">ZERO-HALLUC</text>
+
+    <!-- Step 2.1: BM25 Lexical Matcher -->
+    <g transform="translate(14, 54)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#140d02" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#fbbf24" font-size="12" font-weight="800" class="mono">⚖️ BM25 Lexical Search</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Exact statute mapping across Patents Act</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Hard statutory hits: Sec 3(p), 3(e), 3(d)</text>
+    </g>
+
+    <!-- Step 2.2: Dense Vector Semantic Search -->
+    <g transform="translate(14, 146)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#140d02" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#f59e0b" font-size="12" font-weight="800" class="mono">🧬 Dense Vector Embeddings</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Deep semantic context over BDA 2002/2023</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Retrieves relevant judicial precedents &amp; orders</text>
+    </g>
+
+    <!-- Step 2.3: Reciprocal Rank Fusion Core -->
+    <g transform="translate(14, 238)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#140d02" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#fbbf24" font-size="12" font-weight="800" class="mono">🎯 Reciprocal Rank Fusion</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Cross-scores lexical &amp; dense candidate chunks</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Filters out low-confidence hallucinations</text>
+    </g>
+  </g>
+
+
+  <!-- ================= NODE 3: STATUTORY COMPLIANCE & LEGAL VERDICT ================= -->
+  <g transform="translate(830, 72)">
+    <!-- Main Card Frame (330 x 335) -->
+    <rect x="0" y="0" width="330" height="335" rx="12" fill="url(#verdictGrad)" stroke="#00f2fe" stroke-width="1.4" class="box-verdict" filter="url(#ipSoftGlow)"/>
+    
+    <!-- Card Header Banner -->
+    <rect x="0" y="0" width="330" height="42" rx="12" fill="#072736"/>
+    <circle cx="20" cy="21" r="5" fill="#00f2fe" filter="url(#ipSoftGlow)"/>
+    <text x="34" y="26" fill="#ffffff" font-size="12.5" font-weight="800" class="sans" letter-spacing="1">3. LEGAL COMPLIANCE</text>
+    <rect x="240" y="10" width="77" height="22" rx="11" fill="#031118" stroke="#00f2fe" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="278" y="24" text-anchor="middle" fill="#38bdf8" font-size="8.5" font-weight="700" class="mono">VERDICT</text>
+
+    <!-- Step 3.1: Section 3(p) Patentability Filter -->
+    <g transform="translate(14, 54)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#04131d" stroke="#00f2fe" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#38bdf8" font-size="12" font-weight="800" class="mono">🚫 Sec 3(p) TKDL Defense Bar</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Automated non-patentability bar citation</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Cites prior art from Ayurvedic pharmacopoeias</text>
+    </g>
+
+    <!-- Step 3.2: NBA Form III Auto-Filer -->
+    <g transform="translate(14, 146)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#04131d" stroke="#00f2fe" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#00f2fe" font-size="12" font-weight="800" class="mono">📋 NBA Form III Auto-Generator</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Pre-fills statutory biodiversity approval forms</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Ensures compliance with Sec 6(1) BDA</text>
+    </g>
+
+    <!-- Step 3.3: Court-Ready Legal Dossier -->
+    <g transform="translate(14, 238)">
+      <rect x="0" y="0" width="302" height="80" rx="8" fill="#04131d" stroke="#00f2fe" stroke-opacity="0.3" stroke-width="1"/>
+      <text x="14" y="24" fill="#38bdf8" font-size="12" font-weight="800" class="mono">🛡️ Tamper-Proof Legal Dossier</text>
+      <text x="14" y="47" fill="#94a3b8" font-size="10.5" class="sans">Exports verifiable regulatory defense reports</text>
+      <text x="14" y="67" fill="#64748b" font-size="9.5" class="mono">Court-ready audit trail with cryptographic hash</text>
+    </g>
+  </g>
+
+
+  <!-- ================= BOTTOM TELEMETRY SPECIFICATIONS BAR ================= -->
+  <g transform="translate(40, 435)">
+    <!-- Base Tray (1120px wide) -->
+    <rect x="0" y="0" width="1120" height="52" rx="10" fill="#030c0a" stroke="#10b981" stroke-opacity="0.25" stroke-width="1"/>
+
+    <!-- Spec Item 1: Statutory Foundation -->
+    <g transform="translate(30, 16)">
+      <circle cx="8" cy="8" r="3.5" fill="#f59e0b"/>
+      <text x="20" y="5" fill="#64748b" font-size="8" font-weight="700" class="mono" letter-spacing="1">STATUTORY FOUNDATION</text>
+      <text x="20" y="21" fill="#f8fafc" font-size="10.5" font-weight="700" class="mono">Indian Patents Act (3p, 3e, 3d)</text>
+    </g>
+
+    <!-- Spec Item 2: Biodiversity Mandate -->
+    <g transform="translate(310, 16)">
+      <circle cx="8" cy="8" r="3.5" fill="#10b981"/>
+      <text x="20" y="5" fill="#64748b" font-size="8" font-weight="700" class="mono" letter-spacing="1">BIODIVERSITY MANDATE</text>
+      <text x="20" y="21" fill="#f8fafc" font-size="10.5" font-weight="700" class="mono">BDA 2002/2023 + NBA Form III</text>
+    </g>
+
+    <!-- Spec Item 3: Global Treaty Alignment -->
+    <g transform="translate(600, 16)">
+      <circle cx="8" cy="8" r="3.5" fill="#00f2fe"/>
+      <text x="20" y="5" fill="#64748b" font-size="8" font-weight="700" class="mono" letter-spacing="1">GLOBAL TREATY ALIGNMENT</text>
+      <text x="20" y="21" fill="#f8fafc" font-size="10.5" font-weight="700" class="mono">WIPO 2024 Genetic Resources</text>
+    </g>
+
+    <!-- Spec Item 4: Retrieval Architecture -->
+    <g transform="translate(885, 16)">
+      <circle cx="8" cy="8" r="3.5" fill="#34d399"/>
+      <text x="20" y="5" fill="#64748b" font-size="8" font-weight="700" class="mono" letter-spacing="1">RETRIEVAL ARCHITECTURE</text>
+      <text x="20" y="21" fill="#f8fafc" font-size="10.5" font-weight="700" class="mono">Hybrid BM25 + Dense Vectors</text>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,380 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 380" width="100%" height="380">
+  <defs>
+    <!-- CRT Background Gradient -->
+    <linearGradient id="crtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020409"/>
+      <stop offset="50%" stop-color="#050a17"/>
+      <stop offset="100%" stop-color="#020409"/>
+    </linearGradient>
+
+    <!-- Maze Wall Glow -->
+    <filter id="wallGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Neon Pellet Glow -->
+    <filter id="pelletGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Pac-Man Core Gradient -->
+    <radialGradient id="pacmanGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fff566"/>
+      <stop offset="60%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+
+    <style>
+      .retro-mono {
+        font-family: 'Press Start 2P', 'Courier New', 'Consolas', monospace;
+      }
+      .hud-title {
+        font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      /* Power Pellet Pulse */
+      @keyframes pelletPulse {
+        0%, 100% { opacity: 0.3; transform: scale(0.85); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+      .power-pellet {
+        transform-origin: center;
+        animation: pelletPulse 0.9s infinite ease-in-out;
+      }
+
+      /* Arcade Blinking Text */
+      @keyframes arcadeBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      .blink {
+        animation: arcadeBlink 1.1s infinite;
+      }
+
+      /* Ghost Tentacle Float */
+      @keyframes ghostHover {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-3px); }
+      }
+      .ghost {
+        animation: ghostHover 0.6s infinite ease-in-out;
+      }
+
+      /* Pac-Man Mouth Chomp */
+      @keyframes chompTop {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(-35deg); }
+      }
+      @keyframes chompBottom {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(35deg); }
+      }
+      .jaw-top {
+        transform-origin: 18px 18px;
+        animation: chompTop 0.28s infinite ease-in-out;
+      }
+      .jaw-bottom {
+        transform-origin: 18px 18px;
+        animation: chompBottom 0.28s infinite ease-in-out;
+      }
+
+      /* Continuous Circuit Patrol Animation (16s Loop) */
+      @keyframes pacmanCircuit {
+        0% { transform: translate(75px, 292px) rotate(0deg); }
+        22% { transform: translate(450px, 292px) rotate(0deg); }
+        25% { transform: translate(450px, 292px) rotate(-90deg); }
+        35% { transform: translate(450px, 175px) rotate(-90deg); }
+        38% { transform: translate(450px, 175px) rotate(0deg); }
+        52% { transform: translate(720px, 175px) rotate(0deg); }
+        55% { transform: translate(720px, 175px) rotate(-90deg); }
+        65% { transform: translate(720px, 92px) rotate(-90deg); }
+        68% { transform: translate(720px, 92px) rotate(180deg); }
+        85% { transform: translate(75px, 92px) rotate(180deg); }
+        88% { transform: translate(75px, 92px) rotate(90deg); }
+        98% { transform: translate(75px, 292px) rotate(90deg); }
+        100% { transform: translate(75px, 292px) rotate(0deg); }
+      }
+      .pacman-runner {
+        animation: pacmanCircuit 16s infinite linear;
+      }
+
+      /* Blinky (Red) Chasing 1.2s behind */
+      @keyframes blinkyChase {
+        0% { transform: translate(40px, 292px); }
+        22% { transform: translate(415px, 292px); }
+        35% { transform: translate(415px, 175px); }
+        52% { transform: translate(685px, 175px); }
+        65% { transform: translate(685px, 92px); }
+        85% { transform: translate(40px, 92px); }
+        98% { transform: translate(40px, 292px); }
+        100% { transform: translate(40px, 292px); }
+      }
+      .blinky-runner {
+        animation: blinkyChase 16s infinite linear;
+      }
+
+      /* Pinky (Pink) Patrolling East Lane */
+      @keyframes pinkyPatrol {
+        0%, 100% { transform: translate(885px, 95px); }
+        50% { transform: translate(885px, 292px); }
+      }
+      .pinky-runner {
+        animation: pinkyPatrol 6s infinite ease-in-out;
+      }
+
+      /* Inky (Cyan) Patrolling Central Spine */
+      @keyframes inkyPatrol {
+        0%, 100% { transform: translate(550px, 92px); }
+        50% { transform: translate(550px, 292px); }
+      }
+      .inky-runner {
+        animation: inkyPatrol 5s infinite ease-in-out;
+      }
+
+      /* Clyde (Orange) Wandering Bottom Corridor */
+      @keyframes clydeWander {
+        0%, 100% { transform: translate(520px, 292px); }
+        50% { transform: translate(860px, 292px); }
+      }
+      .clyde-runner {
+        animation: clydeWander 7s infinite ease-in-out;
+      }
+    </style>
+  </defs>
+
+  <!-- ================= ARCADE CABINET BACKGROUND & SCANLINES ================= -->
+  <rect width="1000" height="380" rx="14" fill="url(#crtBg)"/>
+  
+  <!-- Subtle CRT Scanlines -->
+  <line x1="10" y1="20" x2="990" y2="20" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="60" x2="990" y2="60" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="100" x2="990" y2="100" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="140" x2="990" y2="140" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="180" x2="990" y2="180" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="220" x2="990" y2="220" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="260" x2="990" y2="260" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="300" x2="990" y2="300" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+  <line x1="10" y1="340" x2="990" y2="340" stroke="#00f2fe" stroke-opacity="0.05" stroke-width="1"/>
+
+  <!-- Glowing Chassis Outer Border -->
+  <rect x="3" y="3" width="994" height="374" rx="12" fill="none" stroke="#00f2fe" stroke-opacity="0.3" stroke-width="1.2"/>
+
+  <!-- ================= TOP SCOREBOARD / ARCADE HUD ================= -->
+  <g transform="translate(40, 36)">
+    <!-- 1UP -->
+    <text x="0" y="0" fill="#ef4444" font-size="12" class="hud-title">1UP</text>
+    <text x="0" y="16" fill="#f8fafc" font-size="14" class="hud-title">48,920</text>
+
+    <!-- HIGH SCORE -->
+    <text x="240" y="0" fill="#38bdf8" font-size="12" class="hud-title">HIGH SCORE</text>
+    <text x="240" y="16" fill="#f8fafc" font-size="14" class="hud-title">202,600</text>
+
+    <!-- TITLE MARQUEE -->
+    <g transform="translate(540, 8)">
+      <rect x="0" y="-14" width="220" height="26" rx="6" fill="#08142c" stroke="#00f2fe" stroke-opacity="0.5" stroke-width="1"/>
+      <circle cx="12" cy="-1" r="3" fill="#10b981" class="blink"/>
+      <text x="24" y="3" fill="#00f2fe" font-size="10" font-weight="700" class="hud-title">RITESH // ARCADE</text>
+    </g>
+
+    <!-- STAGE INDICATOR -->
+    <text x="820" y="0" fill="#eab308" font-size="12" class="hud-title">STAGE</text>
+    <text x="820" y="16" fill="#f8fafc" font-size="14" class="hud-title">SIH-26</text>
+  </g>
+
+  <!-- ================= RETRO NEON MAZE ARENA ================= -->
+  <!-- Outer Maze Boundaries with Double Glowing Neon Walls -->
+  <g filter="url(#wallGlow)">
+    <!-- Outer Maze Border -->
+    <rect x="40" y="65" width="920" height="260" rx="14" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <rect x="44" y="69" width="912" height="252" rx="10" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.8"/>
+
+    <!-- Maze Obstacle: Top Left T-Block -->
+    <path d="M 120 115 H 230 V 140 H 190 V 190 H 160 V 140 H 120 Z" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <path d="M 122 117 H 228 V 138 H 188 V 188 H 162 V 138 H 122 Z" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Top Center Divider -->
+    <rect x="280" y="115" width="120" height="30" rx="6" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <rect x="282" y="117" width="116" height="26" rx="4" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Ghost House (Center-Right) -->
+    <g transform="translate(480, 140)">
+      <rect x="0" y="0" width="140" height="75" rx="8" fill="#050c1e" stroke="#2563eb" stroke-width="3.5"/>
+      <rect x="3" y="3" width="134" height="69" rx="6" fill="none" stroke="#00f2fe" stroke-width="1.2" stroke-opacity="0.8"/>
+      <!-- Ghost Pen Gate -->
+      <line x1="45" y1="0" x2="95" y2="0" stroke="#f472b6" stroke-width="4" stroke-linecap="round" class="blink"/>
+      <text x="70" y="42" fill="#38bdf8" font-size="9" text-anchor="middle" class="hud-title" letter-spacing="1">GHOST PEN</text>
+    </g>
+
+    <!-- Maze Obstacle: Upper Right L-Block -->
+    <path d="M 670 115 H 770 V 190 H 740 V 140 H 670 Z" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <path d="M 672 117 H 768 V 188 H 742 V 138 H 672 Z" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Far Right Vertical Barrier -->
+    <rect x="820" y="115" width="30" height="150" rx="6" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <rect x="822" y="117" width="26" height="146" rx="4" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Bottom Left Barrier -->
+    <rect x="120" y="235" width="140" height="30" rx="6" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <rect x="122" y="237" width="136" height="26" rx="4" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Bottom Center T-Spine -->
+    <path d="M 310 215 H 410 V 265 H 375 V 240 H 345 V 265 H 310 Z" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <path d="M 312 217 H 408 V 263 H 373 V 238 H 347 V 263 H 312 Z" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Maze Obstacle: Bottom Right Inverted-T -->
+    <path d="M 670 235 H 770 V 265 H 670 Z" fill="#081022" stroke="#2563eb" stroke-width="3"/>
+    <rect x="672" y="237" width="96" height="26" rx="4" fill="none" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- ================= PAC-DOTS & POWER PELLETS ================= -->
+  <g fill="#fef08a" opacity="0.85">
+    <!-- Top Lane Dots -->
+    <circle cx="85" cy="92" r="2.5"/><circle cx="120" cy="92" r="2.5"/><circle cx="155" cy="92" r="2.5"/>
+    <circle cx="190" cy="92" r="2.5"/><circle cx="225" cy="92" r="2.5"/><circle cx="260" cy="92" r="2.5"/>
+    <circle cx="295" cy="92" r="2.5"/><circle cx="330" cy="92" r="2.5"/><circle cx="365" cy="92" r="2.5"/>
+    <circle cx="400" cy="92" r="2.5"/><circle cx="435" cy="92" r="2.5"/><circle cx="470" cy="92" r="2.5"/>
+    <circle cx="505" cy="92" r="2.5"/><circle cx="540" cy="92" r="2.5"/><circle cx="575" cy="92" r="2.5"/>
+    <circle cx="610" cy="92" r="2.5"/><circle cx="645" cy="92" r="2.5"/><circle cx="680" cy="92" r="2.5"/>
+    <circle cx="715" cy="92" r="2.5"/><circle cx="750" cy="92" r="2.5"/><circle cx="785" cy="92" r="2.5"/>
+    <circle cx="885" cy="92" r="2.5"/>
+
+    <!-- Mid Corridor Dots -->
+    <circle cx="85" cy="150" r="2.5"/><circle cx="85" cy="180" r="2.5"/><circle cx="85" cy="210" r="2.5"/>
+    <circle cx="270" cy="175" r="2.5"/><circle cx="305" cy="175" r="2.5"/><circle cx="340" cy="175" r="2.5"/>
+    <circle cx="375" cy="175" r="2.5"/><circle cx="410" cy="175" r="2.5"/><circle cx="445" cy="175" r="2.5"/>
+    <circle cx="645" cy="175" r="2.5"/><circle cx="680" cy="175" r="2.5"/><circle cx="715" cy="175" r="2.5"/>
+    <circle cx="785" cy="150" r="2.5"/><circle cx="785" cy="180" r="2.5"/><circle cx="785" cy="210" r="2.5"/>
+    <circle cx="885" cy="150" r="2.5"/><circle cx="885" cy="180" r="2.5"/><circle cx="885" cy="210" r="2.5"/>
+
+    <!-- Bottom Lane Dots -->
+    <circle cx="85" cy="292" r="2.5"/><circle cx="120" cy="292" r="2.5"/><circle cx="155" cy="292" r="2.5"/>
+    <circle cx="190" cy="292" r="2.5"/><circle cx="225" cy="292" r="2.5"/><circle cx="260" cy="292" r="2.5"/>
+    <circle cx="295" cy="292" r="2.5"/><circle cx="330" cy="292" r="2.5"/><circle cx="365" cy="292" r="2.5"/>
+    <circle cx="400" cy="292" r="2.5"/><circle cx="435" cy="292" r="2.5"/><circle cx="470" cy="292" r="2.5"/>
+    <circle cx="505" cy="292" r="2.5"/><circle cx="540" cy="292" r="2.5"/><circle cx="575" cy="292" r="2.5"/>
+    <circle cx="610" cy="292" r="2.5"/><circle cx="645" cy="292" r="2.5"/><circle cx="680" cy="292" r="2.5"/>
+    <circle cx="715" cy="292" r="2.5"/><circle cx="750" cy="292" r="2.5"/><circle cx="785" cy="292" r="2.5"/>
+    <circle cx="820" cy="292" r="2.5"/><circle cx="855" cy="292" r="2.5"/><circle cx="885" cy="292" r="2.5"/>
+  </g>
+
+  <!-- 4 Pulsing Energizer Power Pellets -->
+  <g fill="#ffd700" filter="url(#pelletGlow)">
+    <circle cx="85" cy="92" r="7" class="power-pellet"/>
+    <circle cx="885" cy="92" r="7" class="power-pellet"/>
+    <circle cx="85" cy="292" r="7" class="power-pellet"/>
+    <circle cx="885" cy="292" r="7" class="power-pellet"/>
+  </g>
+
+  <!-- Arcade Bonus Fruit (Center Cherry) -->
+  <g transform="translate(485, 230)">
+    <!-- Cherries -->
+    <circle cx="10" cy="18" r="6.5" fill="#ef4444"/>
+    <circle cx="12" cy="16" r="2" fill="#fca5a5"/>
+    <circle cx="24" cy="20" r="6.5" fill="#dc2626"/>
+    <circle cx="26" cy="18" r="2" fill="#fca5a5"/>
+    <!-- Stems -->
+    <path d="M 10 13 Q 18 2 24 2" fill="none" stroke="#22c55e" stroke-width="1.8"/>
+    <path d="M 24 14 Q 22 4 24 2" fill="none" stroke="#22c55e" stroke-width="1.8"/>
+    <!-- Leaf -->
+    <path d="M 24 2 Q 30 -2 34 2 Q 30 6 24 2 Z" fill="#22c55e"/>
+    <text x="38" y="18" fill="#facc15" font-size="9" font-weight="700" class="hud-title">+100</text>
+  </g>
+
+  <!-- ================= ANIMATED PAC-MAN ================= -->
+  <!-- Pac-Man with active chomping jaws, smoothly patrolling the maze circuit -->
+  <g class="pacman-runner">
+    <g transform="translate(-18, -18)">
+      <!-- Top Jaw -->
+      <path class="jaw-top" d="M 18 18 L 36 18 A 18 18 0 0 0 0 18 Z" fill="url(#pacmanGrad)" filter="url(#pelletGlow)"/>
+      <!-- Bottom Jaw -->
+      <path class="jaw-bottom" d="M 18 18 L 36 18 A 18 18 0 0 1 0 18 Z" fill="url(#pacmanGrad)" filter="url(#pelletGlow)"/>
+    </g>
+  </g>
+
+  <!-- ================= 4 ICONIC ANIMATED GHOSTS ================= -->
+
+  <!-- 1. BLINKY (Red Ghost - Shadow) Chasing Pac-Man -->
+  <g class="blinky-runner">
+    <g class="ghost" transform="translate(-15, -15)">
+      <!-- Ghost Body Dome & Skirt -->
+      <path d="M 0 16 A 15 15 0 0 1 30 16 L 30 28 L 25 24 L 20 28 L 15 24 L 10 28 L 5 24 L 0 28 Z" fill="#ef4444"/>
+      <!-- Eyes looking right towards Pac-Man -->
+      <circle cx="9" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="11" cy="12" r="2.2" fill="#1d4ed8"/>
+      <circle cx="21" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="23" cy="12" r="2.2" fill="#1d4ed8"/>
+    </g>
+  </g>
+
+  <!-- 2. PINKY (Pink Ghost - Speedy) Patrolling East Lane -->
+  <g class="pinky-runner">
+    <g class="ghost" transform="translate(-15, -15)">
+      <path d="M 0 16 A 15 15 0 0 1 30 16 L 30 28 L 25 24 L 20 28 L 15 24 L 10 28 L 5 24 L 0 28 Z" fill="#f472b6"/>
+      <!-- Eyes looking down -->
+      <circle cx="9" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="9" cy="14" r="2.2" fill="#1d4ed8"/>
+      <circle cx="21" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="21" cy="14" r="2.2" fill="#1d4ed8"/>
+    </g>
+  </g>
+
+  <!-- 3. INKY (Cyan Ghost - Bashful) Patrolling Center Spine -->
+  <g class="inky-runner">
+    <g class="ghost" transform="translate(-15, -15)">
+      <path d="M 0 16 A 15 15 0 0 1 30 16 L 30 28 L 25 24 L 20 28 L 15 24 L 10 28 L 5 24 L 0 28 Z" fill="#00f2fe"/>
+      <!-- Eyes looking left -->
+      <circle cx="9" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="7" cy="12" r="2.2" fill="#1d4ed8"/>
+      <circle cx="21" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="19" cy="12" r="2.2" fill="#1d4ed8"/>
+    </g>
+  </g>
+
+  <!-- 4. CLYDE (Orange Ghost - Pokey) Wandering Bottom Corridor -->
+  <g class="clyde-runner">
+    <g class="ghost" transform="translate(-15, -15)">
+      <path d="M 0 16 A 15 15 0 0 1 30 16 L 30 28 L 25 24 L 20 28 L 15 24 L 10 28 L 5 24 L 0 28 Z" fill="#f97316"/>
+      <!-- Eyes looking up/right -->
+      <circle cx="9" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="10" cy="10" r="2.2" fill="#1d4ed8"/>
+      <circle cx="21" cy="12" r="4.5" fill="#ffffff"/>
+      <circle cx="22" cy="10" r="2.2" fill="#1d4ed8"/>
+    </g>
+  </g>
+
+  <!-- ================= ARCADE STATUS FOOTER ================= -->
+  <g transform="translate(45, 355)">
+    <!-- Lives Remaining -->
+    <text x="0" y="0" fill="#f8fafc" font-size="10" class="hud-title">LIVES:</text>
+    <g transform="translate(60, -8)">
+      <!-- Life 1 -->
+      <path d="M 0 0 A 7 7 0 1 1 7 -7 L 0 0 Z" fill="#ffd700"/>
+      <!-- Life 2 -->
+      <path d="M 18 0 A 7 7 0 1 1 25 -7 L 18 0 Z" fill="#ffd700"/>
+      <!-- Life 3 -->
+      <path d="M 36 0 A 7 7 0 1 1 43 -7 L 36 0 Z" fill="#ffd700"/>
+    </g>
+
+    <!-- Center Insert Coin Prompt -->
+    <text x="450" y="0" text-anchor="middle" fill="#00f2fe" font-size="10.5" font-weight="700" class="hud-title blink">
+      INSERT COIN TO HACK // LEVEL 2026
+    </text>
+
+    <!-- Right Side Fruits -->
+    <g transform="translate(770, -12)">
+      <text x="0" y="11" fill="#64748b" font-size="9" class="hud-title">ITEMS:</text>
+      <text x="55" y="12" font-size="13">🍒 🍓 🍊 🔔 🔑</text>
+    </g>
+  </g>
+
+</svg>

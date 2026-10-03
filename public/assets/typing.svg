@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 44" width="100%" height="44">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&amp;display=swap");
+      .type-text {
+        font-family: "Fira Code", "SF Mono", Consolas, "Courier New", monospace;
+        font-size: 21px;
+        font-weight: 600;
+        fill: #00f2fe;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+      .cursor {
+        animation: blink 0.8s infinite;
+        fill: #38bdf8;
+      }
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText0 {
+        0%, 15% { opacity: 1; }
+        16.66%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText1 {
+        0%, 16.65% { opacity: 0; }
+        16.66%, 31.66% { opacity: 1; }
+        33.33%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText2 {
+        0%, 33.32% { opacity: 0; }
+        33.33%, 48.33% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText3 {
+        0%, 49.99% { opacity: 0; }
+        50%, 65% { opacity: 1; }
+        66.66%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText4 {
+        0%, 66.65% { opacity: 0; }
+        66.66%, 81.66% { opacity: 1; }
+        83.33%, 100% { opacity: 0; }
+      }
+      @keyframes cycleText5 {
+        0%, 83.32% { opacity: 0; }
+        83.33%, 98.33% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      .t0 { animation: cycleText0 18s infinite; }
+      .t1 { animation: cycleText1 18s infinite; }
+      .t2 { animation: cycleText2 18s infinite; }
+      .t3 { animation: cycleText3 18s infinite; }
+      .t4 { animation: cycleText4 18s infinite; }
+      .t5 { animation: cycleText5 18s infinite; }
+    </style>
+  </defs>
+
+  <!-- Centered Animated Headline Text Elements -->
+  <g transform="translate(400, 22)">
+    <text class="type-text t0">Hi &#x1F44B;, I&#x27;m Ritesh Rana (@rrxcore)<tspan class="cursor"> _</tspan></text>
+    <text class="type-text t1">Systems Engineer &amp; Applied AI Architect<tspan class="cursor"> _</tspan></text>
+    <text class="type-text t2">Architecting Sub-15ms C++ Audio Engines<tspan class="cursor"> _</tspan></text>
+    <text class="type-text t3">Zero-Knowledge End-to-End Encryption<tspan class="cursor"> _</tspan></text>
+    <text class="type-text t4">Smart India Hackathon (SIH) Innovator<tspan class="cursor"> _</tspan></text>
+    <text class="type-text t5">Crafting 60 FPS High-Performance Web Apps<tspan class="cursor"> _</tspan></text>
+  </g>
+</svg>

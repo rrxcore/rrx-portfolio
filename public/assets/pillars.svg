@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" height="100%">
+  <defs>
+    <!-- Card Gradients -->
+    <linearGradient id="cardBg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08182d"/>
+      <stop offset="100%" stop-color="#020814"/>
+    </linearGradient>
+
+    <linearGradient id="cardBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#211506"/>
+      <stop offset="100%" stop-color="#0a0702"/>
+    </linearGradient>
+
+    <linearGradient id="cardBg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06211f"/>
+      <stop offset="100%" stop-color="#020d0b"/>
+    </linearGradient>
+
+    <linearGradient id="cardBg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180c2e"/>
+      <stop offset="100%" stop-color="#070314"/>
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="pillarGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#00f2fe" stroke-width="0.5" stroke-opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <style>
+    <![CDATA[
+    .mono {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    }
+    .sans {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+    }
+    @keyframes pulseCyan {
+      0%, 100% { stroke-opacity: 0.35; }
+      50% { stroke-opacity: 0.85; }
+    }
+    @keyframes pulseGold {
+      0%, 100% { stroke-opacity: 0.35; }
+      50% { stroke-opacity: 0.85; }
+    }
+    @keyframes pulseGreen {
+      0%, 100% { stroke-opacity: 0.35; }
+      50% { stroke-opacity: 0.85; }
+    }
+    @keyframes pulsePurple {
+      0%, 100% { stroke-opacity: 0.35; }
+      50% { stroke-opacity: 0.85; }
+    }
+    .border-cyan { animation: pulseCyan 4s ease-in-out infinite; }
+    .border-gold { animation: pulseGold 4s ease-in-out infinite 1s; }
+    .border-green { animation: pulseGreen 4s ease-in-out infinite 2s; }
+    .border-purple { animation: pulsePurple 4s ease-in-out infinite 3s; }
+    ]]>
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="440" fill="#01040a" rx="16"/>
+  <rect width="1200" height="440" fill="url(#pillarGrid)" rx="16"/>
+  <rect x="2" y="2" width="1196" height="436" rx="15" fill="none" stroke="#00f2fe" stroke-opacity="0.18" stroke-width="1.2"/>
+
+  <!-- ================= CARD 1: LOW-LATENCY SYSTEMS ================= -->
+  <g transform="translate(30, 25)">
+    <!-- Base Box (555px x 180px) -->
+    <rect x="0" y="0" width="555" height="180" rx="12" fill="url(#cardBg1)" stroke="#00f2fe" stroke-width="1.2" class="border-cyan"/>
+    
+    <!-- Header -->
+    <g transform="translate(20, 28)">
+      <circle cx="0" cy="0" r="5" fill="#00f2fe"/>
+      <text x="14" y="5" fill="#ffffff" font-size="14.5" font-weight="800" class="sans" letter-spacing="0.5">⚡ LOW-LATENCY SYSTEMS</text>
+      <!-- Badge -->
+      <rect x="385" y="-11" width="145" height="22" rx="11" fill="#00f2fe" fill-opacity="0.12" stroke="#00f2fe" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="457" y="4" fill="#38bdf8" font-size="9" font-weight="700" text-anchor="middle" class="mono">C++ WASAPI • &lt;15ms</text>
+    </g>
+
+    <!-- Bullets -->
+    <g transform="translate(24, 62)">
+      <!-- Bullet 1 -->
+      <circle cx="0" cy="0" r="2.5" fill="#00f2fe"/>
+      <text x="12" y="4" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#38bdf8">C++ WASAPI Core:</tspan> Sub-15ms real-time double-buffered audio processing
+      </text>
+
+      <!-- Bullet 2 -->
+      <circle cx="0" cy="26" r="2.5" fill="#00f2fe"/>
+      <text x="12" y="30" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#38bdf8">Lock-Free SPSC Queues:</tspan> Zero allocation in hot loops; zero mutex contention
+      </text>
+
+      <!-- Bullet 3 -->
+      <circle cx="0" cy="52" r="2.5" fill="#00f2fe"/>
+      <text x="12" y="56" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#38bdf8">MMCSS Priority:</tspan> Windows Pro Audio thread scheduling prevents glitching
+      </text>
+
+      <!-- Bullet 4 -->
+      <circle cx="0" cy="78" r="2.5" fill="#00f2fe"/>
+      <text x="12" y="82" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#38bdf8">DSP Pipeline:</tspan> Real-time SOLA pitch &amp; formant shifting without harmonic drift
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 2: APPLIED AI & STATUTORY RAG ================= -->
+  <g transform="translate(615, 25)">
+    <!-- Base Box (555px x 180px) -->
+    <rect x="0" y="0" width="555" height="180" rx="12" fill="url(#cardBg2)" stroke="#f59e0b" stroke-width="1.2" class="border-gold"/>
+    
+    <!-- Header -->
+    <g transform="translate(20, 28)">
+      <circle cx="0" cy="0" r="5" fill="#f59e0b"/>
+      <text x="14" y="5" fill="#ffffff" font-size="14.5" font-weight="800" class="sans" letter-spacing="0.5">🧠 APPLIED AI &amp; STATUTORY RAG</text>
+      <!-- Badge -->
+      <rect x="375" y="-11" width="155" height="22" rx="11" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="452" y="4" fill="#fbbf24" font-size="9" font-weight="700" text-anchor="middle" class="mono">SIH 2026 • ZERO-HALLUC</text>
+    </g>
+
+    <!-- Bullets -->
+    <g transform="translate(24, 62)">
+      <!-- Bullet 1 -->
+      <circle cx="0" cy="0" r="2.5" fill="#f59e0b"/>
+      <text x="12" y="4" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#fbbf24">Hybrid BM25 + Vector:</tspan> Pairs exact lexical citations with semantic embeddings
+      </text>
+
+      <!-- Bullet 2 -->
+      <circle cx="0" cy="26" r="2.5" fill="#f59e0b"/>
+      <text x="12" y="30" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#fbbf24">Statutory Grounding:</tspan> Codified Indian Patents Act (Sections 3p, 3e, 3d prior art)
+      </text>
+
+      <!-- Bullet 3 -->
+      <circle cx="0" cy="52" r="2.5" fill="#f59e0b"/>
+      <text x="12" y="56" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#fbbf24">Biodiversity Mandates:</tspan> BDA 2002/2023 compliance &amp; automated NBA Form III
+      </text>
+
+      <!-- Bullet 4 -->
+      <circle cx="0" cy="78" r="2.5" fill="#f59e0b"/>
+      <text x="12" y="82" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#fbbf24">Reciprocal Rank Fusion:</tspan> Strict thresholding eliminates hallucinated legal advice
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 3: EXTREME WEB PERFORMANCE ================= -->
+  <g transform="translate(30, 230)">
+    <!-- Base Box (555px x 180px) -->
+    <rect x="0" y="0" width="555" height="180" rx="12" fill="url(#cardBg3)" stroke="#10b981" stroke-width="1.2" class="border-green"/>
+    
+    <!-- Header -->
+    <g transform="translate(20, 28)">
+      <circle cx="0" cy="0" r="5" fill="#10b981"/>
+      <text x="14" y="5" fill="#ffffff" font-size="14.5" font-weight="800" class="sans" letter-spacing="0.5">🚀 EXTREME WEB PERFORMANCE</text>
+      <!-- Badge -->
+      <rect x="385" y="-11" width="145" height="22" rx="11" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="457" y="4" fill="#34d399" font-size="9" font-weight="700" text-anchor="middle" class="mono">REACT 19 • 60 FPS UI</text>
+    </g>
+
+    <!-- Bullets -->
+    <g transform="translate(24, 62)">
+      <!-- Bullet 1 -->
+      <circle cx="0" cy="0" r="2.5" fill="#10b981"/>
+      <text x="12" y="4" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#34d399">React 19 + TypeScript:</tspan> Concurrent rendering with zero wasteful re-renders
+      </text>
+
+      <!-- Bullet 2 -->
+      <circle cx="0" cy="26" r="2.5" fill="#10b981"/>
+      <text x="12" y="30" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#34d399">TanStack Virtualizer:</tspan> Locked 60 FPS viewport scrolling on 100,000+ items
+      </text>
+
+      <!-- Bullet 3 -->
+      <circle cx="0" cy="52" r="2.5" fill="#10b981"/>
+      <text x="12" y="56" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#34d399">In-Memory Flat Heap:</tspan> Sub-millisecond instant search over massive datasets
+      </text>
+
+      <!-- Bullet 4 -->
+      <circle cx="0" cy="78" r="2.5" fill="#10b981"/>
+      <text x="12" y="82" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#34d399">Zero-Server Privacy:</tspan> 100% client execution; zero API calls or tracking pixels
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 4: ZERO-KNOWLEDGE CRYPTOGRAPHY ================= -->
+  <g transform="translate(615, 230)">
+    <!-- Base Box (555px x 180px) -->
+    <rect x="0" y="0" width="555" height="180" rx="12" fill="url(#cardBg4)" stroke="#8b5cf6" stroke-width="1.2" class="border-purple"/>
+    
+    <!-- Header -->
+    <g transform="translate(20, 28)">
+      <circle cx="0" cy="0" r="5" fill="#8b5cf6"/>
+      <text x="14" y="5" fill="#ffffff" font-size="14.5" font-weight="800" class="sans" letter-spacing="0.5">🔐 ZERO-KNOWLEDGE CRYPTO</text>
+      <!-- Badge -->
+      <rect x="365" y="-11" width="165" height="22" rx="11" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="447" y="4" fill="#a78bfa" font-size="9" font-weight="700" text-anchor="middle" class="mono">W3C WEBCRYPTO • E2EE</text>
+    </g>
+
+    <!-- Bullets -->
+    <g transform="translate(24, 62)">
+      <!-- Bullet 1 -->
+      <circle cx="0" cy="0" r="2.5" fill="#8b5cf6"/>
+      <text x="12" y="4" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#a78bfa">W3C SubtleCrypto:</tspan> Hardware-accelerated browser cryptographic primitives
+      </text>
+
+      <!-- Bullet 2 -->
+      <circle cx="0" cy="26" r="2.5" fill="#8b5cf6"/>
+      <text x="12" y="30" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#a78bfa">Ephemeral ECDH P-256:</tspan> Per-session key agreements with HKDF derivation
+      </text>
+
+      <!-- Bullet 3 -->
+      <circle cx="0" cy="52" r="2.5" fill="#8b5cf6"/>
+      <text x="12" y="56" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#a78bfa">AES-256-GCM + Relay:</tspan> Zero-knowledge server acts purely as dumb packet relay
+      </text>
+
+      <!-- Bullet 4 -->
+      <circle cx="0" cy="78" r="2.5" fill="#8b5cf6"/>
+      <text x="12" y="82" fill="#e2e8f0" font-size="11.5" class="sans">
+        <tspan font-weight="700" fill="#a78bfa">60-Digit MITM Matrix:</tspan> Deterministic public key fingerprinting verification
+      </text>
+    </g>
+  </g>
+
+</svg>
