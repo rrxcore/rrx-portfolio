@@ -122,7 +122,7 @@ export const TitleBar: React.FC<TitleBarProps> = ({
 
       {/* Center Title */}
       <div className="flex items-center gap-2 font-mono text-xs text-slate-300">
-        <span className="font-semibold text-cyan-400">rrxOS</span>
+        <span className="font-semibold text-cyan-400">rrxcoreOS</span>
         <span className="text-slate-500">v2.0</span>
         <span className="hidden sm:inline text-slate-500">—</span>
         <span className="hidden sm:inline text-slate-300">Ritesh Rana (Systems & Applied AI)</span>

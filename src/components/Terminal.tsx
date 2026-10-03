@@ -30,7 +30,7 @@ export const Terminal: React.FC<TerminalProps> = ({
     {
       id: 'init-1',
       type: 'system',
-      text: 'rrxOS v2.0 (x86_64-pc-linux-gnu) — Systems & Applied AI Environment'
+      text: 'rrxcoreOS v2.0 (x86_64-pc-linux-gnu) — Systems & Applied AI Environment'
     },
     {
       id: 'init-2',
@@ -107,7 +107,7 @@ export const Terminal: React.FC<TerminalProps> = ({
     switch (mainCommand) {
       case 'help':
         responses = [
-          { id: '1', type: 'output', text: '⚡ rrxOS v2.0 Available Commands:' },
+          { id: '1', type: 'output', text: '⚡ rrxcoreOS v2.0 Available Commands:' },
           { id: '2', type: 'output', text: '  neofetch       - Display system specifications & banner' },
           { id: '3', type: 'output', text: '  projects       - List flagship innovations with metrics' },
           { id: '4', type: 'output', text: '  skills         - Show low-latency systems & AI skill matrix' },
@@ -135,7 +135,7 @@ export const Terminal: React.FC<TerminalProps> = ({
       ██║  ██║██║  ██║██╔╝ ██╗╚██████╗╚██████╔╝███████╗
       ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
 
-  OS: rrxOS v2.0 x86_64
+  OS: rrxcoreOS v2.0 x86_64
   Host: Ritesh Rana (rrxcore)
   Kernel: C++ WASAPI / React 19 / Python 3.12
   Uptime: Active Engineering Flow
